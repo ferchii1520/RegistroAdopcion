@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Pet</title>
+</head>
+<body>
+    <h1>Add a new Pet</h1>
+    <form action="#" th:action="@{/addPet}" th:object="${pet}" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" th:field="*{name}" />
+        </div>
+        <div>
+            <label for="fechaNac">Fecha de Nacimiento:</label>
+            <input type="date" id="fechaNac" th:field="*{fechaNac}" />
+        </div>
+        <div>
+            <label for="raza">Raza:</label>
+            <input type="text" id="raza" th:field="*{raza}" />
+        </div>
+        <div>
+            <label for="peso">Peso:</label>
+            <input type="number" id="peso" th:field="*{peso}" />
+        </div>
+        <div>
+            <label for="tiene_chip">Tiene Chip:</label>
+            <input type="checkbox" id="tiene_chip" th:field="*{tiene_chip}" />
+        </div>
+        <div>
+            <label for="url_foto">URL Foto:</label>
+            <input type="text" id="url_foto" th:field="*{url_foto}" />
+        </div>
+        <div>
+            <label for="owner">Owner:</label>
+            <select id="owner" th:field="*{owner}">
+                <option th:each="owner : ${owners}" th:value="${owner.id}" th:text="${owner.name}"></option>
+            </select>
+        </div>
+        <div>
+            <button type="submit">Add Pet</button>
+        </div>
+    </form>
+</body>
+</html>

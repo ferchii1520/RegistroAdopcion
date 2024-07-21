@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS OWNER (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS PET (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    fechaNac DATE,
+    raza VARCHAR(255),
+    peso INT,
+    tiene_chip BOOLEAN,
+    url_foto VARCHAR(255),
+    owner_id BIGINT,
+    FOREIGN KEY (owner_id) REFERENCES OWNER(id)
+);
