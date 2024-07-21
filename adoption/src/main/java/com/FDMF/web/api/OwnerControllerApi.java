@@ -1,6 +1,8 @@
 package com.FDMF.web.api;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.FDMF.data.OwnerRepository;
 import com.FDMF.model.Owner;
+import com.FDMF.model.Pet;
 
 @RestController
 @RequestMapping(path = "/api/owners", produces = "application/json")
@@ -54,5 +57,17 @@ public class OwnerControllerApi {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteOwner(@PathVariable("id") Long id) {
         ownerRepo.deleteById(id);
+    }
+    
+    @GetMapping("/{id}/pets")
+    public ResponseEntity<List<String>> getPetsByOwnerId(@PathVariable("id") Long id) {
+        Optional<Owner> optOwner = ownerRepo.findById(id);
+        if (optOwner.isPresent()) {
+            List<String> petNames = optOwner.get().getPets().stream()
+                .map(Pet::getName)
+                .collect(Collectors.toList());
+            return new ResponseEntity<>(petNames, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 }
