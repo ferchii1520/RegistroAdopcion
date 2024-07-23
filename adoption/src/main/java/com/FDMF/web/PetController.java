@@ -12,29 +12,31 @@ import com.FDMF.data.PetRepository;
 import com.FDMF.model.Pet;
 
 @Controller
+
 public class PetController {
-    @Autowired
-    private PetRepository petRepo;
 
-    @Autowired
-    private OwnerRepository ownerRepo;
-
-    @GetMapping("/addPet")
-    public String showPetForm(Model model) {
-        model.addAttribute("pet", new Pet());
-        model.addAttribute("owners", ownerRepo.findAll());
-        return "addPet";
-    }
-
-    @PostMapping("/addPet")
-    public String addPet(@ModelAttribute Pet pet) {
-        petRepo.save(pet);
-        return "redirect:/listPets";
-    }
-
-    @GetMapping("/listPets")
-    public String listPets(Model model) {
-        model.addAttribute("pets", petRepo.findAll());
-        return "listPets";
-    }
+	 @Autowired
+	 private PetRepository petRepo;
+	
+	 @Autowired
+	 private OwnerRepository ownerRepo;
+	
+	 @GetMapping("/addPet")
+	 public String showPetForm(Model model) {
+	     model.addAttribute("pet", new Pet()); 
+	     model.addAttribute("owners", ownerRepo.findAll());
+	     return "addPet";
+	 }
+	
+	 @PostMapping("/addPet")
+	 public String addPet(@ModelAttribute Pet pet) {
+	     petRepo.save(pet);
+	     return "redirect:/listPets";
+	 }
+	
+	 @GetMapping("/listPets")
+	 public String listPets(Model model) {
+	     model.addAttribute("pets", petRepo.findAll());
+	     return "listPets";
+	 }
 }

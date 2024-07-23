@@ -18,13 +18,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Owner {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "owner")
-    private List<Pet> pets;
+public class Owner {
+	
+	 @Id
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 private Long id;
+	 private String name;
+	 @JsonIgnore
+	 @OneToMany(mappedBy = "owner")
+	 private List<Pet> pets;
+	 
 }

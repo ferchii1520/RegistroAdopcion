@@ -19,19 +19,21 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Pet {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date fechaNac;
-    private String raza;
-    private int peso;
-    private boolean tiene_chip;
-    private String url_foto;
 
-    @ManyToOne
-    @JoinColumn(name = "owner_id")
-    private Owner owner;
+public class Pet {
+	
+	 @Id
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 private Long id;
+	 private String name;
+	 @DateTimeFormat(pattern = "yyyy-MM-dd")
+	 private Date fechaNac;
+	 private String raza;
+	 private int peso;
+	 private boolean tiene_chip;
+	 private String url_foto;
+	 @ManyToOne
+	 @JoinColumn(name = "owner_id")
+	 private Owner owner;
+	 
 }

@@ -15,23 +15,24 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
-    @Bean
-    Docket createApiDoc() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.FDMF.web.api"))
-                .paths(PathSelectors.any())
-                .build();
-    }
 
-    private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-                .title("Documentación de la API de Registro de Adopción de Mascotas")
-                .description("Información completa sobre la API REST para consumo de clientes de todo tipo")
-                .termsOfServiceUrl("www.example.com")
-                .contact(new Contact("Nombre del Desarrollador", "www.example.com", "email@example.com"))
-                .version("1.0")
-                .build();
-    }
+ @Bean
+ Docket createApiDoc() {
+     return new Docket(DocumentationType.SWAGGER_2)
+             .apiInfo(apiInfo())
+             .select()
+             .apis(RequestHandlerSelectors.basePackage("com.FDMF.web.api"))
+             .paths(PathSelectors.any())
+             .build();
+ }
+
+ private ApiInfo apiInfo() {
+     return new ApiInfoBuilder()
+             .title("Documentación de la API de Registro de Adopción de Mascotas")
+             .description("Información completa sobre la API REST para consumo de clientes de todo tipo") 
+             .termsOfServiceUrl("www.example.com")
+             .contact(new Contact("Maria Fernanda Fuentes Diaz", "www.example.com", "email@example.com"))
+             .version("1.0")
+             .build();
+ }
 }

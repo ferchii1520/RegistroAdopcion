@@ -23,8 +23,10 @@ import com.FDMF.model.Pet;
 
 @RestController
 @RequestMapping(path = "/api/owners", produces = "application/json")
+
 public class OwnerControllerApi {
-	@Autowired
+
+    @Autowired
     private OwnerRepository ownerRepo;
 
     @GetMapping

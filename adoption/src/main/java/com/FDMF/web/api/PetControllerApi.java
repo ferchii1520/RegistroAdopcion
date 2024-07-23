@@ -16,18 +16,17 @@ import com.FDMF.model.Pet;
 
 @RestController
 @RequestMapping(path = "/api/pets", produces = "application/json")
+
 public class PetControllerApi {
 
 	@Autowired
     private PetRepository petRepo;
 
-	//Buscar todos los pets
     @GetMapping
     public Iterable<Pet> findAllPets() {
         return petRepo.findAll();
     }
     
-    //Buscar los pets por ID
     @GetMapping("/{id}")
     public ResponseEntity<Pet> petById(@PathVariable("id") Long id) {
         Optional<Pet> optPet = petRepo.findById(id);
@@ -37,13 +36,11 @@ public class PetControllerApi {
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
-    //Buscar los pets por Nombre
     @GetMapping("/name/{name}")
     public List<Pet> petsByName(@PathVariable("name") String name) {
         return petRepo.findByNameContaining(name);
     }
 
-    //Crear un nuevo pet
     @PostMapping(consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public Pet createPet(@RequestBody Pet pet) {

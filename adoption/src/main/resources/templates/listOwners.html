@@ -1,35 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Mascotas</title>
+    <title>Lista de Propietarios</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Lista de Mascotas</h1>
+        <h1 class="text-center">Lista de Propietarios</h1>
         <table class="table table-striped mt-4">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Nombre</th>
-                    <th>Fecha de Nacimiento</th>
-                    <th>Raza</th>
-                    <th>Peso (kg)</th>
-                    <th>Tiene Chip</th>
-                    <th>URL Foto</th>
-                    <th>Propietario</th>
+                    <th>Mascotas</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="pet : ${pets}">
-                    <td th:text="${pet.name}"></td>
-                    <td th:text="${#dates.format(pet.fechaNac, 'yyyy-MM-dd')}"></td>
-                    <td th:text="${pet.raza}"></td>
-                    <td th:text="${pet.peso}"></td>
-                    <td th:text="${pet.tiene_chip ? 'Sí' : 'No'}"></td>
-                    <td><img th:src="${pet.url_foto}" alt="Foto de mascota" class="img-thumbnail" width="100"></td>
-                    <td th:text="${pet.owner.name}"></td>
+                <!-- Aquí se llenarán los datos de los propietarios -->
+                <tr th:each="owner : ${owners}">
+                    <td th:text="${owner.id}"></td>
+                    <td th:text="${owner.name}"></td>
+                    <td>
+                        <ul>
+                            <li th:each="pet : ${owner.pets}" th:text="${pet.name}"></li>
+                        </ul>
+                    </td>
                 </tr>
             </tbody>
         </table>
