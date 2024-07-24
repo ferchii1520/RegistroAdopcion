@@ -28,10 +28,10 @@ public class SwaggerConfig {
 
  private ApiInfo apiInfo() {
      return new ApiInfoBuilder()
-             .title("Documentación de la API de Registro de Adopción de Mascotas")
+             .title("Documentación de la API de Registro de Mascotas para Adopción")
              .description("Información completa sobre la API REST para consumo de clientes de todo tipo") 
-             .termsOfServiceUrl("www.example.com")
-             .contact(new Contact("Maria Fernanda Fuentes Diaz", "www.example.com", "email@example.com"))
+             .termsOfServiceUrl("www.linkedin.com/in/maría-fernanda-fuentes-diaz-t1sh4")
+             .contact(new Contact("Maria Fernanda Fuentes Diaz", "https://github.com/ferchii1520/RegistroAdopcion", "fuentesdiazmafernanda@gmail.com"))
              .version("1.0")
              .build();
  }
