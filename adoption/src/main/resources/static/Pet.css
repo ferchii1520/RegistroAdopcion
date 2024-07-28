@@ -1,0 +1,13 @@
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Altura del contenedor, ajusta según tus necesidades */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+

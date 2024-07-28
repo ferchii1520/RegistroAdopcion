@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Adopción de Mascotas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Pet.css">
 </head>
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Registro de Adopción de Mascotas</h1>
         <p class="text-center">Bienvenido al sistema de registro de adopción de mascotas. Seleccione una opción a continuación para comenzar.</p>
+        <div class="image-container">
+        	<img th:src="@{/images/Adoption.png}" alt="Adoption Image"/>
+    	</div>
         <div class="row mt-4">
             <div class="col-md-6 text-center">
                 <a href="/addOwner" class="btn btn-primary btn-lg btn-block">Agregar Propietario</a>
